@@ -16,5 +16,9 @@ AWS_DEFAULT_REGION
 AWS_SECRET_ACCESS_KEY
 ```
 
-You should be able to find them on your Amazon AWS S3 account where your bucket is configured.
+You should be able to find them on your Amazon AWS S3 account where your bucket is configured. 
+
+Consult [Managing AWS Access Keys](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) page to get details for `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
+
+Consult [Region and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) to choose the right value for `AWS_DEFAULT_REGION`
 
