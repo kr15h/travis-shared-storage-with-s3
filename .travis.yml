@@ -1,0 +1,31 @@
+# This configuration uses S3 as shared storage between different
+# build stages.
+
+# It assums S3 credentials to be set up in the repository settings
+# or to be configured as encrypted env vars here.
+
+sudo: false
+
+env:
+  global:
+    # include $HOME/.local/bin for `aws`
+    - PATH=$HOME/.local/bin:$PATH
+
+before_install:
+  # set up awscli packages
+  - pip install --user awscli
+  - mkdir -p ~/shared
+  - aws s3 sync s3://travis-build-stages-shared-storage-test/shared ~/shared
+
+jobs:
+  include:
+    - stage: setup files
+      script: echo one | tee > ~/shared/one
+    - stage: setup files
+      script: echo two | tee > ~/shared/two
+    - stage: use shared files 
+      script:
+        - cat ~/shared/*
+
+after_success:
+  - aws s3 sync ~/shared s3://travis-build-stages-shared-storage-test/shared
