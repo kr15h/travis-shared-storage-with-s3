@@ -7,3 +7,14 @@ Repository to test sharing files between Travis CI jobs using Amazon S3. Consult
 ## Usage
 
 First, create an [Amazon AWS account](https://aws.amazon.com/free). Then [create a S3 bucket](https://aws.amazon.com/getting-started/tutorials/backup-files-to-amazon-s3/) for syncing. 
+
+Set up environment variables for your repository on Travis CI.
+
+```
+AWS_ACCESS_KEY_ID
+AWS_DEFAULT_REGION
+AWS_SECRET_ACCESS_KEY
+```
+
+You should be able to find them on your Amazon AWS S3 account where your bucket is configured.
+
